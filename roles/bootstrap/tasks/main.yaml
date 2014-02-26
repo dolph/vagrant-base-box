@@ -10,6 +10,11 @@
 - name: install sudo
   apt: pkg=sudo
 
+- name: set a well-known root password ("vagrant")
+  user:
+    name=root
+    password=$6$rounds=100000$t2R5KnplPVsEu7yk$YJoDVb9Q1UJEiiPSH8kqb.39zBZ29gzeGoqhbEp4zOYTwTtHb/5RmRARM6lnKAFRGXzeVBHqLkH9qjqJtiXsh1
+
 - name: create an insecure vagrant user with well-known password ("vagrant")
   user:
     name=vagrant
