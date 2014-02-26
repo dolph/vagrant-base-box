@@ -1,0 +1,26 @@
+- name: configure grub to boot faster
+  template:
+    src=grub.conf
+    dest=/etc/default/grub
+    mode=0644
+
+- name: apply grub configuration
+  shell: update-grub
+
+- name: install sudo
+  apt: pkg=sudo
+
+- name: create an insecure vagrant user with well-known password ("vagrant")
+  user:
+    name=vagrant
+    password=$6$rounds=100000$t2R5KnplPVsEu7yk$YJoDVb9Q1UJEiiPSH8kqb.39zBZ29gzeGoqhbEp4zOYTwTtHb/5RmRARM6lnKAFRGXzeVBHqLkH9qjqJtiXsh1
+    groups=sudo
+    shell=/bin/bash
+
+- name: give passwordless sudo to the vagrant user
+  lineinfile: dest=/etc/sudoers state=present regexp='^%vagrant ALL\=' line='%vagrant ALL=(ALL) NOPASSWD:ALL' validate='visudo -cf %s'
+
+- name: install well-known, insecure ssh key
+  authorized_key:
+    user=vagrant
+    key="{{ lookup('file', 'vagrant.pub') }}"

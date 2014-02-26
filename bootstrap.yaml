@@ -1,0 +1,4 @@
+- name: bootstrap base box
+  hosts: all
+  roles:
+  - bootstrap
