@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 if [ $# -ne 2 ]; then
-    echo "Usage: ./bootstrap_base_box.sh <hostname> <package_name>"
+    echo "Usage: ./bootstrap_base_box.sh <hostname> <boxname>"
     exit 1
 fi
 command -v ansible-playbook >/dev/null 2>&1 || { echo "Switch to a Python virtualenv with ansible installed (pip install ansible)."; exit 1; }
