@@ -19,7 +19,7 @@ conventions](http://docs.vagrantup.com/v2/boxes/base.html).
 This has been tested to produce a Debian 7.4.0 Wheezy 64-bit (AMD64) base box.
 
 Usage
-=====
+-----
 
 Start with a virtual machine that you'd like to use to create a base box.
 Configure it however you'd like.
