@@ -30,4 +30,6 @@ package:
     ./configure_insecure_base_box.sh <hostname> <boxname>
 
 After the host is prepared, it will be shutdown and you'll be prompted to
-package it. You'll then have your own `.box` file to share with the world.
+package it (this step is provider-specific, but VirtualBox users will be given
+a command to run). You'll then have your own `.box` file to share with the
+world.

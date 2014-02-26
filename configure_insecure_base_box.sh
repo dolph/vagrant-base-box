@@ -15,7 +15,7 @@ ansible-playbook -i "$1," --user="root" bootstrap.yaml
 ssh root@$1 "rm -rf ~/.ssh ~/.bash_history ~/.ansible; shutdown -h 0 now"
 
 echo
-echo "When the machine is shutdown, package the box using your provider specific method. For example, with virtualbox:"
+echo "When the machine is shutdown, package the box using your provider-specific method. For example, with VirtualBox:"
 echo
 echo "  vagrant package --base $2; mv \"package.box\" \"$2.box\""
 echo
