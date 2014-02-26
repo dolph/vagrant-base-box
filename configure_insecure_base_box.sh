@@ -11,8 +11,8 @@ ssh-copy-id root@$1
 
 ansible-playbook -i "$1," --user="root" bootstrap.yaml
 
-# cleanup: remove root authorized ssh key
-ssh root@$1 "rm ~/.ssh/authorized_keys; shutdown -h 0 now"
+# cleanup our mess and halt the vm
+ssh root@$1 "rm -rf ~/.ssh ~/.bash_history ~/.ansible; shutdown -h 0 now"
 
 echo
 echo "When the machine is shutdown, package the box using your provider specific method. For example, with virtualbox:"
