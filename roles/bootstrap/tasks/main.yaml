@@ -25,7 +25,7 @@
 - name: give passwordless sudo to the vagrant user
   lineinfile: dest=/etc/sudoers state=present regexp='^%vagrant ALL\=' line='%vagrant ALL=(ALL) NOPASSWD:ALL' validate='visudo -cf %s'
 
-- name: install well-known, insecure ssh key
+- name: install well-known, insecure authorized ssh key
   authorized_key:
     user=vagrant
     key="{{ lookup('file', 'vagrant.pub') }}"
