@@ -28,6 +28,6 @@ ssh root@$1 "rm -rf ~/.ssh ~/.bash_history ~/.ansible; shutdown -h 0 now"
 echo
 echo "When the machine is shutdown, package the box using your provider-specific method. For example, with VirtualBox:"
 echo
-echo "  vagrant package --base \"$2\"; mv \"package.box\" \"$2.box\""
+echo "  vagrant package --base \"$2\" --output \"$2.box\""
 echo
 echo "Read more: http://docs.vagrantup.com/v2/virtualbox/boxes.html"
